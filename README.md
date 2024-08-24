@@ -6,7 +6,14 @@ Unfortunately, the methods to point / configure the local version of electron do
 
 ## Using Path Configuration
 
-As documented on cypress.io ([see here](https://docs.cypress.io/guides/guides/launching-browsers#Launching-by-a-path)), it should be possible to point to a local browser instance using the `--browser` flag. However, this does not appear to work, generating the following error:
+As documented on cypress.io ([see here](https://docs.cypress.io/guides/guides/launching-browsers#Launching-by-a-path)), it should be possible to point to a local browser instance using the `--browser` flag.
+
+I've done that here using
+```sh
+cypress run --browser ./node_modules/.bin/electron
+```
+
+However, this does not appear to work, generating the following error:
 
 ```
 Unable to find browser with path ./node_modules/.bin/electron
@@ -21,7 +28,11 @@ This can be replicated in this repo using the `npm run test:path` command.
 
 ## Using Browser Config
 
-As documented on cypress.io ([see here](https://docs.cypress.io/guides/guides/launching-browsers#Customize-available-browsers)), it should alternatively be possible to create a new browser config that points to a specific path. This unfortunately also does not work, with a different error. The electron browser does launch, but the browser opens an error prompt saying:
+As documented on cypress.io ([see here](https://docs.cypress.io/guides/guides/launching-browsers#Customize-available-browsers)), it should alternatively be possible to create a new browser config that points to a specific path.
+
+I've done that in `cypress.config.js` with a custom `npm-electron` entry that has a `path` of `'./node_modules/.bin/electron',`
+
+This unfortunately also does not work, with a different error. The electron browser does launch, but the browser opens an error prompt saying:
 
 ```
 Error launching app
