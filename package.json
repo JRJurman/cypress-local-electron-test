@@ -1,0 +1,21 @@
+{
+  "name": "cypress-local-electron-test",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Example Project with local electron configuration",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --browser electron",
+    "test:path": "cypress run --browser ./node_modules/.bin/electron",
+    "test:config": "cypress run --browser npm-electron"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.13.2"
+  },
+  "devDependencies": {
+    "electron": "^32.0.1"
+  }
+}
